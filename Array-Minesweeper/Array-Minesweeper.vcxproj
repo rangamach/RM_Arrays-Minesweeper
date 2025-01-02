@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Gameplay\Board\BoardView.cpp" />
     <ClCompile Include="source\Gameplay\Board\BoardController.cpp" />
     <ClCompile Include="source\Gameplay\Board\BoardService.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsScreenUIController.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Gameplay\Board\BoardView.h" />
     <ClInclude Include="header\Gameplay\Board\BoardController.h" />
     <ClInclude Include="header\Gameplay\Board\BoardService.h" />
     <ClInclude Include="header\Event\EventService.h" />
