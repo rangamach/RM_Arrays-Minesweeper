@@ -133,6 +133,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Gameplay\Cell\CellModel.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellView.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellController.cpp" />
     <ClCompile Include="source\Gameplay\GameplayService.cpp" />
     <ClCompile Include="source\Gameplay\GameplayController.cpp" />
     <ClCompile Include="source\Gameplay\Board\BoardView.cpp" />
@@ -157,6 +160,9 @@
     <ClCompile Include="source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Gameplay\Cell\CellModel.h" />
+    <ClInclude Include="header\Gameplay\Cell\CellView.h" />
+    <ClInclude Include="header\Gameplay\Cell\CellController.h" />
     <ClInclude Include="header\Gameplay\GameplayService.h" />
     <ClInclude Include="header\Gameplay\GameplayController.h" />
     <ClInclude Include="header\Gameplay\Board\BoardView.h" />
