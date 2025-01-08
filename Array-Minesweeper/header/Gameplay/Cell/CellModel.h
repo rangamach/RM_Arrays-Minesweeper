@@ -42,6 +42,7 @@ namespace Gameplay
 			void SetCellValue(CellValue value);
 			sf::Vector2i GetCellPosition();
 			void SetCellPosition(sf::Vector2i pos);
+			void Reset();
 		};
 	}
 }

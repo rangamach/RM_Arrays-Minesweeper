@@ -2,6 +2,7 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Global/Config.h"
 #include "../../header/UI/UIElement/ButtonView.h"
+#include <SFML/Graphics.hpp>
 
 using namespace Gameplay::Cell;
 using namespace UI::UIElement;
@@ -40,5 +41,23 @@ void CellView::Update()
 
 void CellView::Render()
 {
+	SetCellTexture();
 	cell_view->render();
+}
+
+void CellView::SetCellTexture()
+{
+	int index = static_cast<int>(cell_controller->GetCellValue());
+	switch (cell_controller->GetCellState())
+	{
+	case CellState::Hidden:
+		cell_view->setTextureRect(sf::IntRect(10 * cell_size, 0, cell_size, cell_size));
+		break;
+	case CellState::Open:
+		cell_view->setTextureRect(sf::IntRect(index * cell_size, 0, cell_size, cell_size));
+		break;
+	case CellState::Flagged:
+		cell_view->setTextureRect(sf::IntRect(11 * cell_size, 0, cell_size, cell_size));
+		break;
+	}
 }

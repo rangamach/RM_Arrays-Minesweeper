@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CellModel.h"
+
 namespace Gameplay
 {
 	namespace Cell
@@ -9,6 +11,7 @@ namespace Gameplay
 		{
 		private:
 			CellView* cell_view;
+			CellModel* cell_model;
 
 			void Destroy();
 
@@ -21,6 +24,10 @@ namespace Gameplay
 			void Render();
 
 			void Reset();
+			CellState GetCellState();
+			void SetCellState(CellState state);
+			CellValue GetCellValue();
+			void SetCellValue(CellValue value);
 		};
 	}
 }

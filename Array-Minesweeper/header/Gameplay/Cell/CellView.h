@@ -11,6 +11,7 @@ namespace Gameplay
 		private:
 			UI::UIElement::ButtonView* cell_view;
 			CellController* cell_controller;
+			sf::Sprite* sprite;
 
 			const int cell_size = 32;
 			int slice_count = 12;
@@ -27,6 +28,8 @@ namespace Gameplay
 			void Initialize();
 			void Update();
 			void Render();
+
+			void SetCellTexture();
 		};
 	}
 }
