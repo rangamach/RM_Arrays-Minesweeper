@@ -13,6 +13,8 @@ namespace Gameplay
 			CellController* cell_controller;
 
 			const int cell_size = 32;
+			int slice_count = 12;
+
 
 			void Destroy();
 

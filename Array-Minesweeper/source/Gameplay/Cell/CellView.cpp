@@ -14,7 +14,7 @@ void CellView::Destroy()
 
 void Gameplay::Cell::CellView::InitializeButtonImage(float width, float height)
 {
-	cell_view->initialize("Cell", Config::cells_texture_path, width, height, sf::Vector2f(0, 0));
+	cell_view->initialize("Cell", Config::cells_texture_path, width * slice_count, height, sf::Vector2f(0, 0));
 }
 
 CellView::CellView(CellController* controller)
