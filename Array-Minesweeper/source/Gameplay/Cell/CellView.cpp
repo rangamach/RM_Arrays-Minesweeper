@@ -30,9 +30,10 @@ CellView::~CellView()
 	Destroy();
 }
 
-void CellView::Initialize()
+void CellView::Initialize(float cell_width,float cell_height)
 {
-	InitializeButtonImage(cell_size*3, cell_size * 3);
+	//InitializeButtonImage(cell_size*3, cell_size * 3);
+	InitializeButtonImage(cell_width, cell_height);
 }
 
 void CellView::Update()

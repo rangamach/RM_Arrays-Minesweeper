@@ -12,6 +12,9 @@ void BoardController::CreateBoard()
 
 void BoardController::InitializeCells()
 {
+	float cell_width = board_view->GetCellWidth();
+	float cell_height = board_view->GetCellHeight();
+	cell_controller->Initialize(cell_width, cell_height);
 }
 
 void BoardController::ResetBoard()
@@ -40,7 +43,8 @@ BoardController::~BoardController()
 void BoardController::Initialize()
 {
 	board_view->Initialize();
-	cell_controller->Initialize();
+	//cell_controller->Initialize();
+	InitializeCells();
 }
 
 void BoardController::Update()

@@ -23,7 +23,7 @@ namespace Gameplay
 
 		public:
 			static const int number_of_rows = 9;
-			static const int number_of_columns = 0;
+			static const int number_of_columns = 9;
 			static const int mine_count = 8;
 
 			BoardController();

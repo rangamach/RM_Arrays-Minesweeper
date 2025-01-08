@@ -20,9 +20,9 @@ CellController::~CellController()
 	Destroy();
 }
 
-void CellController::Initialize()
+void CellController::Initialize(float cell_width, float cell_height)
 {
-	cell_view->Initialize();
+	cell_view->Initialize(cell_width,cell_height);
 }
 
 void CellController::Update()
