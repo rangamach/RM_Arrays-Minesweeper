@@ -13,6 +13,8 @@ namespace Gameplay
 			CellController* cell_controller;
 			sf::Sprite* sprite;
 
+			const float cell_top_offset = 274.f;
+			const float cell_left_offset = 583.f;
 			const int cell_size = 32;
 			int slice_count = 12;
 
@@ -30,6 +32,7 @@ namespace Gameplay
 			void Render();
 
 			void SetCellTexture();
+			sf::Vector2f GetCellPosition();
 		};
 	}
 }
