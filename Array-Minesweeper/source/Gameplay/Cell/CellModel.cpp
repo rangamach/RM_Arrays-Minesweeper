@@ -2,7 +2,7 @@
 
 using namespace Gameplay::Cell;
 
-CellModel::CellModel(int index)
+CellModel::CellModel(sf::Vector2i index)
 {
 	cell_index = index;
 }
@@ -39,7 +39,7 @@ void CellModel::SetCellPosition(sf::Vector2i pos)
 	position = pos;
 }
 
-int Gameplay::Cell::CellModel::GetCellIndex()
+sf::Vector2i CellModel::GetCellIndex()
 {
 	return cell_index;
 }

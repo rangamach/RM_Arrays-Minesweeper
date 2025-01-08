@@ -65,7 +65,10 @@ void CellView::SetCellTexture()
 
 sf::Vector2f Gameplay::Cell::CellView::GetCellPosition(float width, float height)
 {
-	float x = cell_left_offset + cell_controller->GetCellIndex() * width; 
-	float y = cell_top_offset;
-	return sf::Vector2f(x,y);
+	sf::Vector2i cell_index = cell_controller->GetCellIndex();
+	/*float x = cell_left_offset + cell_controller->GetCellIndex() * width; 
+	float y = cell_top_offset;*/
+	float x = cell_left_offset + cell_index.y * width;
+	float y = cell_top_offset + cell_index.x * height;
+	return sf::Vector2f(x, y);
 }

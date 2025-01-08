@@ -20,6 +20,7 @@ namespace Gameplay
 			BoardView* board_view;
 			//CellController* cell_controller;
 			CellController* cells[number_of_rows];
+			CellController* board[number_of_rows][number_of_columns];
 
 
 			void CreateBoard();

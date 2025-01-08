@@ -9,7 +9,7 @@ void CellController::Destroy()
 	delete(cell_view);
 }
 
-CellController::CellController(int index)
+CellController::CellController(sf::Vector2i index)
 {
 	cell_model = new CellModel(index);
 	cell_view = new CellView(this);
@@ -60,7 +60,7 @@ void Gameplay::Cell::CellController::SetCellValue(CellValue value)
 	cell_model->SetCellValue(value);
 }
 
-int CellController::GetCellIndex()
+sf::Vector2i CellController::GetCellIndex()
 {
 	return cell_model->GetCellIndex();
 }
