@@ -11,7 +11,6 @@ namespace Gameplay
 		private:
 			UI::UIElement::ButtonView* cell_view;
 			CellController* cell_controller;
-			sf::Sprite* sprite;
 
 			const float cell_top_offset = 274.f;
 			const float cell_left_offset = 583.f;
@@ -27,12 +26,12 @@ namespace Gameplay
 			CellView(CellController* controller);
 			~CellView();
 
-			void Initialize(float cell_width,float cell_height);
+			void Initialize(float cell_width,float cell_heightx);
 			void Update();
 			void Render();
 
 			void SetCellTexture();
-			sf::Vector2f GetCellPosition();
+			sf::Vector2f GetCellPosition(float width, float height);
 		};
 	}
 }

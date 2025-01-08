@@ -15,7 +15,7 @@ void CellView::Destroy()
 
 void Gameplay::Cell::CellView::InitializeButtonImage(float width, float height)
 {
-	sf::Vector2f cell_position = GetCellPosition();
+	sf::Vector2f cell_position = GetCellPosition(width,height);
 	cell_view->initialize("Cell", Config::cells_texture_path, width * slice_count, height, cell_position);
 }
 
@@ -32,7 +32,6 @@ CellView::~CellView()
 
 void CellView::Initialize(float cell_width,float cell_height)
 {
-	//InitializeButtonImage(cell_size*3, cell_size * 3);
 	InitializeButtonImage(cell_width, cell_height);
 }
 
@@ -64,9 +63,9 @@ void CellView::SetCellTexture()
 	}
 }
 
-sf::Vector2f Gameplay::Cell::CellView::GetCellPosition()
+sf::Vector2f Gameplay::Cell::CellView::GetCellPosition(float width, float height)
 {
-	float x = cell_left_offset;
+	float x = cell_left_offset + cell_controller->GetCellIndex() * width; 
 	float y = cell_top_offset;
 	return sf::Vector2f(x,y);
 }

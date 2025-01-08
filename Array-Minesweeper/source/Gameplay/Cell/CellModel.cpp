@@ -2,8 +2,9 @@
 
 using namespace Gameplay::Cell;
 
-CellModel::CellModel()
+CellModel::CellModel(int index)
 {
+	cell_index = index;
 }
 
 CellModel::~CellModel() = default;
@@ -36,6 +37,11 @@ sf::Vector2i CellModel::GetCellPosition()
 void CellModel::SetCellPosition(sf::Vector2i pos)
 {
 	position = pos;
+}
+
+int Gameplay::Cell::CellModel::GetCellIndex()
+{
+	return cell_index;
 }
 
 void CellModel::Reset()

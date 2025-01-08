@@ -9,10 +9,10 @@ void CellController::Destroy()
 	delete(cell_view);
 }
 
-CellController::CellController()
+CellController::CellController(int index)
 {
+	cell_model = new CellModel(index);
 	cell_view = new CellView(this);
-	cell_model = new CellModel();
 }
 
 CellController::~CellController()
@@ -58,4 +58,9 @@ CellValue Gameplay::Cell::CellController::GetCellValue()
 void Gameplay::Cell::CellController::SetCellValue(CellValue value)
 {
 	cell_model->SetCellValue(value);
+}
+
+int CellController::GetCellIndex()
+{
+	return cell_model->GetCellIndex();
 }

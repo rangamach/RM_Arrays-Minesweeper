@@ -7,26 +7,36 @@ using namespace Gameplay::Cell;
 
 void BoardController::CreateBoard()
 {
-	cell_controller = new CellController();
+	//cell_controller = new CellController();
+	for (int i = 0; i < number_of_rows; i++)
+	{
+		cells[i] = new CellController(i);
+	}
 }
 
 void BoardController::InitializeCells()
 {
 	float cell_width = board_view->GetCellWidth();
 	float cell_height = board_view->GetCellHeight();
-	cell_controller->Initialize(cell_width, cell_height);
-}
-
-void BoardController::ResetBoard()
-{
+	//cell_controller->Initialize(cell_width, cell_height);
+	for (int i = 0; i < number_of_rows; i++)
+	{
+		cells[i]->Initialize(cell_width,cell_height);
+	}
 }
 
 void BoardController::DeleteBoard()
 {
+	for (int i = 0; i < number_of_rows; i++)
+	{
+		delete(cells[i]);
+	}
 }
 
 void BoardController::Destroy()
 {
+	DeleteBoard();
+	delete(board_view);
 }
 
 BoardController::BoardController()
@@ -50,16 +60,28 @@ void BoardController::Initialize()
 void BoardController::Update()
 {
 	board_view->Update();
-	cell_controller->Update();
+	//cell_controller->Update();
+	for (int i = 0; i < number_of_rows; i++)
+	{
+		cells[i]->Update();
+	}
 }
 
 void BoardController::Render()
 {
 	board_view->Render();
-	cell_controller->Render();
+	//cell_controller->Render();
+	for (int i = 0; i < number_of_rows; i++)
+	{
+		cells[i]->Render();
+	}
 }
 
 void BoardController::Reset()
 {
-	cell_controller->Reset();
+	//cell_controller->Reset();
+	for (int i = 0; i < number_of_rows; i++)
+	{
+		cells[i]->Reset();
+	}
 }

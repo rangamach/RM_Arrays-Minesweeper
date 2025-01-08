@@ -11,20 +11,24 @@ namespace Gameplay
 		class BoardView;
 		class BoardController
 		{
-		private:
-			BoardView* board_view;
-			CellController* cell_controller;
-
-			void CreateBoard();
-			void InitializeCells();
-			void ResetBoard();
-			void DeleteBoard();
-			void Destroy();
-
 		public:
 			static const int number_of_rows = 9;
 			static const int number_of_columns = 9;
 			static const int mine_count = 8;
+
+		private:
+			BoardView* board_view;
+			//CellController* cell_controller;
+			CellController* cells[number_of_rows];
+
+
+			void CreateBoard();
+			void InitializeCells();
+			//void ResetBoard();
+			void DeleteBoard();
+			void Destroy();
+
+		public:
 
 			BoardController();
 			~BoardController();
