@@ -64,3 +64,29 @@ sf::Vector2i CellController::GetCellIndex()
 {
 	return cell_model->GetCellIndex();
 }
+<<<<<<< Updated upstream
+=======
+
+void CellController::OpenCell()
+{
+	if (GetCellState() != CellState::Flagged)
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+		SetCellState(CellState::Open);
+	}
+}
+
+void CellController::FlagCell()
+{
+	switch (cell_model->GetCellState())
+	{
+	case CellState::Flagged:
+		cell_model->SetCellState(CellState::Hidden);
+		break;
+	case CellState::Hidden:
+		cell_model->SetCellState(CellState::Flagged);
+		break;
+	}
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+}
+>>>>>>> Stashed changes

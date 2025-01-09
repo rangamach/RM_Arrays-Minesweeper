@@ -2,6 +2,12 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Global/Config.h"
 #include "../../header/UI/UIElement/ButtonView.h"
+<<<<<<< Updated upstream
+=======
+#include "../../header/Global/ServiceLocator.h"
+#include <iostream>
+#include <functional>
+>>>>>>> Stashed changes
 #include <SFML/Graphics.hpp>
 
 using namespace Gameplay::Cell;
@@ -17,6 +23,7 @@ void Gameplay::Cell::CellView::InitializeButtonImage(float width, float height)
 {
 	sf::Vector2f cell_position = GetCellPosition(width,height);
 	cell_view->initialize("Cell", Config::cells_texture_path, width * slice_count, height, cell_position);
+	RegisterButtonCallBack();
 }
 
 CellView::CellView(CellController* controller)
@@ -72,3 +79,27 @@ sf::Vector2f Gameplay::Cell::CellView::GetCellPosition(float width, float height
 	float y = cell_top_offset + cell_index.x * height;
 	return sf::Vector2f(x, y);
 }
+<<<<<<< Updated upstream
+=======
+
+void Gameplay::Cell::CellView::RegisterButtonCallBack()
+{
+	cell_view->registerCallbackFuntion(std::bind(&CellView::CellButtonCallBack, this, std::placeholders::_1));
+}
+
+
+void CellView::CellButtonCallBack(UI::UIElement::ButtonType button_type)
+{
+	switch(button_type)
+	{
+	case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
+		cell_controller->OpenCell();
+		break;
+	case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
+		cell_controller->FlagCell();
+		break;
+	default:
+		break;
+	}
+}
+>>>>>>> Stashed changes
