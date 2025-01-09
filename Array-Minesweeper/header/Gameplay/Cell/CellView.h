@@ -32,6 +32,8 @@ namespace Gameplay
 
 			void SetCellTexture();
 			sf::Vector2f GetCellPosition(float width, float height);
+			void RegisterButtonCallBack();
+			void CellButtonCallBack(UI::UIElement::ButtonType button_type);
 		};
 	}
 }

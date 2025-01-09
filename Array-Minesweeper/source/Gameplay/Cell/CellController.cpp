@@ -1,8 +1,12 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Gameplay/Cell/CellView.h"
 #include "../../header/Gameplay/Cell/CellModel.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Sound/SoundService.h"
 
 using namespace Gameplay::Cell;
+using namespace Global;
+using namespace Sound;
 
 void CellController::Destroy()
 {
@@ -35,27 +39,27 @@ void CellController::Render()
 	cell_view->Render();
 }
 
-void Gameplay::Cell::CellController::Reset()
+void CellController::Reset()
 {
 	cell_model->Reset();
 }
 
-CellState Gameplay::Cell::CellController::GetCellState()
+CellState CellController::GetCellState()
 {
 	return cell_model->GetCellState();
 }
 
-void Gameplay::Cell::CellController::SetCellState(CellState state)
+void CellController::SetCellState(CellState state)
 {
 	cell_model->SetCellState(state);
 }
 
-CellValue Gameplay::Cell::CellController::GetCellValue()
+CellValue CellController::GetCellValue()
 {
 	return cell_model->GetCellValue();
 }
 
-void Gameplay::Cell::CellController::SetCellValue(CellValue value)
+void CellController::SetCellValue(CellValue value)
 {
 	cell_model->SetCellValue(value);
 }
@@ -63,4 +67,13 @@ void Gameplay::Cell::CellController::SetCellValue(CellValue value)
 sf::Vector2i CellController::GetCellIndex()
 {
 	return cell_model->GetCellIndex();
+}
+
+void CellController::OpenCell()
+{
+	if (GetCellState() != CellState::Flagged)
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+		SetCellState(CellState::Open);
+	}
 }

@@ -2,18 +2,21 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Global/Config.h"
 #include "../../header/UI/UIElement/ButtonView.h"
+#include <iostream>
+#include <functional>
 #include <SFML/Graphics.hpp>
 
 using namespace Gameplay::Cell;
 using namespace UI::UIElement;
 using namespace Global;
+using namespace std;
 
 void CellView::Destroy()
 {
 	delete(cell_view);
 }
 
-void Gameplay::Cell::CellView::InitializeButtonImage(float width, float height)
+void CellView::InitializeButtonImage(float width, float height)
 {
 	sf::Vector2f cell_position = GetCellPosition(width,height);
 	cell_view->initialize("Cell", Config::cells_texture_path, width * slice_count, height, cell_position);
@@ -66,9 +69,18 @@ void CellView::SetCellTexture()
 sf::Vector2f Gameplay::Cell::CellView::GetCellPosition(float width, float height)
 {
 	sf::Vector2i cell_index = cell_controller->GetCellIndex();
-	/*float x = cell_left_offset + cell_controller->GetCellIndex() * width; 
-	float y = cell_top_offset;*/
 	float x = cell_left_offset + cell_index.y * width;
 	float y = cell_top_offset + cell_index.x * height;
 	return sf::Vector2f(x, y);
+}
+
+void Gameplay::Cell::CellView::RegisterButtonCallBack()
+{
+	cell_view->registerCallbackFuntion(std::bind(&CellView::CellButtonCallBack, this, std::placeholders::_1));
+}
+
+
+void CellView::CellButtonCallBack(UI::UIElement::ButtonType button_type)
+{
+	
 }
