@@ -41,11 +41,11 @@ namespace UI
 			GameplayUIController();
 			~GameplayUIController();
 
-			void Initialize();
-			void Update();
-			void Render();
+			void initialize();
+			void update();
+			void render();
 
-			void Show();
+			void show();
 			void RegisterButtonCallback();
 			void RestartButtonCallback();
 

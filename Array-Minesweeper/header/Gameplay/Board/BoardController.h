@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Cell/CellController.h"
+#include "../../UI/UIElement/ButtonView.h"
 
 using namespace Gameplay::Cell;
 
@@ -24,7 +25,6 @@ namespace Gameplay
 
 			void CreateBoard();
 			void InitializeCells();
-			//void ResetBoard();
 			void DeleteBoard();
 			void Destroy();
 
@@ -39,6 +39,9 @@ namespace Gameplay
 
 			void Reset();
 			int GetMineCount();
+			void OpenCell(sf::Vector2i cell_pos);
+			void FlagCell(sf::Vector2i cell_pos);
+			void ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
 		};
 	}
 }

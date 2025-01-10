@@ -85,27 +85,27 @@ GameplayUIController::~GameplayUIController()
 	Destroy();
 }
 
-void GameplayUIController::Initialize()
+void GameplayUIController::initialize()
 {
 	InitializeRestartButton();
 	InitializeTexts();
 }
 
-void GameplayUIController::Update()
+void GameplayUIController::update()
 {
 	restart_button->update();
 	UpdateMineText();
 	UpdateTimeText();
 }
 
-void GameplayUIController::Render()
+void GameplayUIController::render()
 {
 	restart_button->render();
 	mine_text->render();
 	time_text->render();
 }
 
-void GameplayUIController::Show()
+void GameplayUIController::show()
 {
 	restart_button->show();
 	mine_text->show();

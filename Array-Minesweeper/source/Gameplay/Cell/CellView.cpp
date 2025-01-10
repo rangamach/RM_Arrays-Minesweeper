@@ -82,15 +82,5 @@ void Gameplay::Cell::CellView::RegisterButtonCallBack()
 
 void CellView::CellButtonCallBack(UI::UIElement::ButtonType button_type)
 {
-	switch(button_type)
-	{
-	case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
-		cell_controller->OpenCell();
-		break;
-	case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
-		cell_controller->FlagCell();
-		break;
-	default:
-		break;
-	}
+	ServiceLocator::getInstance()->GetBoardService()->ProcessCellInput(cell_controller, button_type);
 }

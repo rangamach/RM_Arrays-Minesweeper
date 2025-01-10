@@ -105,3 +105,36 @@ int BoardController::GetMineCount()
 {
 	return mine_count;
 }
+
+void BoardController::OpenCell(sf::Vector2i cell_pos)
+{
+	if (board[cell_pos.x][cell_pos.y]->CanOpenCell())
+	{
+		board[cell_pos.x][cell_pos.y]->OpenCell();
+	}
+}
+
+void BoardController::FlagCell(sf::Vector2i cell_pos)
+{
+	switch (board[cell_pos.x][cell_pos.y]->GetCellState())
+	{
+	case CellState::Flagged:
+		
+	default:
+		break;
+	}
+}
+
+void BoardController::ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
+{
+	switch (button_type)
+	{
+	case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
+		OpenCell(cell_controller->GetCellIndex());
+		break;
+	case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
+		break;
+	default:
+		break;
+	}
+}

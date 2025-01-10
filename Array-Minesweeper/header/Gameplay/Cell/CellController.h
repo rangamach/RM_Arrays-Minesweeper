@@ -31,6 +31,8 @@ namespace Gameplay
 			sf::Vector2i GetCellIndex();
 			void OpenCell();
 			void FlagCell();
+			bool CanOpenCell();
+			void OpenCell(sf::Vector2i cell_pos);
 		};
 	}
 }

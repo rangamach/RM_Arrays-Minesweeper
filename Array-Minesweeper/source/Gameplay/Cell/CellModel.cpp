@@ -4,6 +4,7 @@ using namespace Gameplay::Cell;
 
 CellModel::CellModel(sf::Vector2i index)
 {
+	Reset();
 	cell_index = index;
 }
 
