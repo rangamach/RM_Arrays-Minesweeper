@@ -37,3 +37,8 @@ void GameplayService::StartGame()
 {
 	gameplay_controller->Reset();
 }
+
+float GameplayService::GetRemainingTime()
+{
+	return gameplay_controller->GetRemainingTime();
+}

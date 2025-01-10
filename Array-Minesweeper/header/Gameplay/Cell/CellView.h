@@ -1,6 +1,8 @@
 #pragma once
 #include "../../UI/UIElement/ButtonView.h"
 
+using namespace UI::UIElement;
+
 namespace Gameplay
 {
 	namespace Cell
@@ -9,7 +11,7 @@ namespace Gameplay
 		class CellView
 		{
 		private:
-			UI::UIElement::ButtonView* cell_view;
+			ButtonView* cell_view;
 			CellController* cell_controller;
 
 			const float cell_top_offset = 274.f;
@@ -21,6 +23,9 @@ namespace Gameplay
 			void Destroy();
 
 			void InitializeButtonImage(float width, float height);
+			void RegisterButtonCallBack();
+			void CellButtonCallBack(UI::UIElement::ButtonType button_type);
+
 
 		public:
 			CellView(CellController* controller);

@@ -29,11 +29,8 @@ namespace Gameplay
 			CellValue GetCellValue();
 			void SetCellValue(CellValue value);
 			sf::Vector2i GetCellIndex();
-<<<<<<< Updated upstream
-=======
 			void OpenCell();
 			void FlagCell();
->>>>>>> Stashed changes
 		};
 	}
 }

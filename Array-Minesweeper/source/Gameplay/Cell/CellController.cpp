@@ -1,8 +1,12 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Gameplay/Cell/CellView.h"
 #include "../../header/Gameplay/Cell/CellModel.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Sound/SoundService.h"
 
 using namespace Gameplay::Cell;
+using namespace Global;
+using namespace Sound;
 
 void CellController::Destroy()
 {
@@ -64,8 +68,6 @@ sf::Vector2i CellController::GetCellIndex()
 {
 	return cell_model->GetCellIndex();
 }
-<<<<<<< Updated upstream
-=======
 
 void CellController::OpenCell()
 {
@@ -87,6 +89,5 @@ void CellController::FlagCell()
 		cell_model->SetCellState(CellState::Flagged);
 		break;
 	}
-	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::FLAGGED);
 }
->>>>>>> Stashed changes

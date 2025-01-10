@@ -2,12 +2,8 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Global/Config.h"
 #include "../../header/UI/UIElement/ButtonView.h"
-<<<<<<< Updated upstream
-=======
 #include "../../header/Global/ServiceLocator.h"
 #include <iostream>
-#include <functional>
->>>>>>> Stashed changes
 #include <SFML/Graphics.hpp>
 
 using namespace Gameplay::Cell;
@@ -70,17 +66,13 @@ void CellView::SetCellTexture()
 	}
 }
 
-sf::Vector2f Gameplay::Cell::CellView::GetCellPosition(float width, float height)
+sf::Vector2f CellView::GetCellPosition(float width, float height)
 {
 	sf::Vector2i cell_index = cell_controller->GetCellIndex();
-	/*float x = cell_left_offset + cell_controller->GetCellIndex() * width; 
-	float y = cell_top_offset;*/
 	float x = cell_left_offset + cell_index.y * width;
 	float y = cell_top_offset + cell_index.x * height;
 	return sf::Vector2f(x, y);
 }
-<<<<<<< Updated upstream
-=======
 
 void Gameplay::Cell::CellView::RegisterButtonCallBack()
 {
@@ -102,4 +94,3 @@ void CellView::CellButtonCallBack(UI::UIElement::ButtonType button_type)
 		break;
 	}
 }
->>>>>>> Stashed changes
