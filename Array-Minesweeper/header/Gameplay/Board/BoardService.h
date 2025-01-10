@@ -21,6 +21,7 @@ namespace Gameplay
 			void Render();
 
 			void Reset();
+			int GetMineCount();
 		};
 	}
 }

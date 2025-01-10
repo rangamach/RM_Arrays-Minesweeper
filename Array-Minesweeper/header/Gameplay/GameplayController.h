@@ -20,6 +20,7 @@ namespace Gameplay
 
 		void Reset();
 		float GetRemainingTime();
+		int GetMineCount();
 	};
 }
 

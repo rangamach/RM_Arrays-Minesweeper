@@ -43,3 +43,8 @@ float GameplayController::GetRemainingTime()
 {
 	return remaining_time;
 }
+
+int Gameplay::GameplayController::GetMineCount()
+{
+	return ServiceLocator::getInstance()->GetBoardService()->GetMineCount();
+}

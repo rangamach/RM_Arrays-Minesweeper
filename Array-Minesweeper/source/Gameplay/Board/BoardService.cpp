@@ -38,3 +38,8 @@ void BoardService::Reset()
 {
 	board_controller->Reset();
 }
+
+int BoardService::GetMineCount()
+{
+	return board_controller->GetMineCount();
+}
