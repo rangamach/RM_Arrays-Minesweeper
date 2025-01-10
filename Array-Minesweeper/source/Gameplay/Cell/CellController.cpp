@@ -71,11 +71,8 @@ sf::Vector2i CellController::GetCellIndex()
 
 void CellController::OpenCell()
 {
-	if (GetCellState() != CellState::Flagged)
-	{
-		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-		SetCellState(CellState::Open);
-	}
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+	SetCellState(CellState::Open);
 }
 
 void CellController::FlagCell()
@@ -95,9 +92,4 @@ void CellController::FlagCell()
 bool CellController::CanOpenCell()
 {
 	return cell_model->GetCellState() != CellState::Flagged && cell_model->GetCellState() != CellState::Open;
-}
-
-void CellController::OpenCell(sf::Vector2i cell_pos)
-{
-	SetCellState(CellState::Open);
 }

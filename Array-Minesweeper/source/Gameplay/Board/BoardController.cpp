@@ -92,6 +92,7 @@ void BoardController::Render()
 
 void BoardController::Reset()
 {
+	flagged_cells = 0;
 	for (int i = 0; i < number_of_rows; i++)
 	{
 		for (int j = 0; j < number_of_columns; j++)
@@ -119,10 +120,15 @@ void BoardController::FlagCell(sf::Vector2i cell_pos)
 	switch (board[cell_pos.x][cell_pos.y]->GetCellState())
 	{
 	case CellState::Flagged:
-		
+		flagged_cells--;
+		break;
+	case CellState::Hidden:
+		flagged_cells++;
+		break;
 	default:
 		break;
 	}
+	board[cell_pos.x][cell_pos.y]->FlagCell();
 }
 
 void BoardController::ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
@@ -133,6 +139,7 @@ void BoardController::ProcessCellInput(Cell::CellController* cell_controller, UI
 		OpenCell(cell_controller->GetCellIndex());
 		break;
 	case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
+		FlagCell(cell_controller->GetCellIndex());
 		break;
 	default:
 		break;

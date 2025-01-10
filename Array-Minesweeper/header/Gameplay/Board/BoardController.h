@@ -18,6 +18,8 @@ namespace Gameplay
 			static const int mine_count = 8;
 
 		private:
+			int flagged_cells;
+
 			BoardView* board_view;
 			CellController* cells[number_of_rows];
 			CellController* board[number_of_rows][number_of_columns];
