@@ -60,7 +60,7 @@ void GameplayUIController::UpdateMineText()
 {
 	int mine_count = ServiceLocator::getInstance()->GetGameplayService()->GetMineCount();
 	std::stringstream stream;
-	stream << std::setw(3) << std::setfill('0') << mine_count;
+	stream << std::setw(3) << std::setfill('0') << ServiceLocator::getInstance()->GetBoardService()->GetMineCount();
 	std::string string_mine_count = stream.str();
 
 	mine_text->setText(string_mine_count);

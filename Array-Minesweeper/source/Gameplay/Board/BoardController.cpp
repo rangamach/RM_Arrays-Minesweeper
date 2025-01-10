@@ -104,7 +104,7 @@ void BoardController::Reset()
 
 int BoardController::GetMineCount()
 {
-	return mine_count;
+	return mine_count - flagged_cells;
 }
 
 void BoardController::OpenCell(sf::Vector2i cell_pos)
