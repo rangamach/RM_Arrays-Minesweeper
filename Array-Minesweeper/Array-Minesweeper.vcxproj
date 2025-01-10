@@ -133,6 +133,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellModel.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellView.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellController.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayService.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="source\Gameplay\Board\BoardView.cpp" />
+    <ClCompile Include="source\Gameplay\Board\BoardController.cpp" />
+    <ClCompile Include="source\Gameplay\Board\BoardService.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsScreenUIController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Event\EventService.cpp" />
@@ -150,8 +159,18 @@
     <ClCompile Include="source\UI\UIElement\TextView.cpp" />
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
     <ClCompile Include="source\UI\UIService.cpp" />
+    <ClCompile Include="source\Time\TimeService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\UI\Gameplay\GameplayUIController.h" />
+    <ClInclude Include="header\Gameplay\Cell\CellModel.h" />
+    <ClInclude Include="header\Gameplay\Cell\CellView.h" />
+    <ClInclude Include="header\Gameplay\Cell\CellController.h" />
+    <ClInclude Include="header\Gameplay\GameplayService.h" />
+    <ClInclude Include="header\Gameplay\GameplayController.h" />
+    <ClInclude Include="header\Gameplay\Board\BoardView.h" />
+    <ClInclude Include="header\Gameplay\Board\BoardController.h" />
+    <ClInclude Include="header\Gameplay\Board\BoardService.h" />
     <ClInclude Include="header\Event\EventService.h" />
     <ClInclude Include="header\Main\GameService.h" />
     <ClInclude Include="header\Global\Config.h" />
@@ -169,6 +188,7 @@
     <ClInclude Include="header\UI\UIElement\UIView.h" />
     <ClInclude Include="header\UI\UIService.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsScreenUIController.h" />
+    <ClInclude Include="header\Time\TimeService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
