@@ -67,7 +67,7 @@ void BoardController::PopulateCells()
 	}
 }
 
-int Gameplay::Board::BoardController::CountMinesAround(sf::Vector2i cell_position)
+int BoardController::CountMinesAround(sf::Vector2i cell_position)
 {
 	int mines_around = 0;
 	for (int m = -1; m < 2; m++)
@@ -81,9 +81,24 @@ int Gameplay::Board::BoardController::CountMinesAround(sf::Vector2i cell_positio
 	return mines_around;
 }
 
-bool Gameplay::Board::BoardController::IsValidCellPosition(sf::Vector2i cell_position)
+bool BoardController::IsValidCellPosition(sf::Vector2i cell_position)
 {
 	return cell_position.x>=0 && cell_position.y>=0 && cell_position.x <number_of_columns && cell_position.y < number_of_rows;
+}
+
+void BoardController::OpenAllCells()
+{
+	if (board_state == BoardState::FirstCell)
+	{
+		PopulateBoard(sf::Vector2i(0, 0));
+	}
+	for (int m = 0; m < number_of_rows; ++m)
+	{
+		for (int n = 0; n < number_of_columns; ++n)
+		{
+			board[m][n]->OpenCell();
+		}
+	}
 }
 
 void BoardController::DeleteBoard()

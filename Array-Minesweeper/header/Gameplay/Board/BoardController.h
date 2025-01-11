@@ -43,6 +43,7 @@ namespace Gameplay
 			void PopulateCells();
 			int CountMinesAround(sf::Vector2i cell_position);
 			bool IsValidCellPosition(sf::Vector2i cell_position);
+			void OpenAllCells();
 			void DeleteBoard();
 			void Destroy();
 
