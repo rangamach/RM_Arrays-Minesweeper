@@ -102,6 +102,31 @@ void BoardController::OpenAllCells()
 	}
 }
 
+void BoardController::OpenEmptyCells(sf::Vector2i cell_position)
+{
+	switch (board[cell_position.x][cell_position.y]->GetCellState())
+	{
+	case CellState::Open:
+		return;
+	case CellState::Flagged:
+		flagged_cells--;
+	default:
+		board[cell_position.x][cell_position.y]->OpenCell();
+		break;
+	}
+
+	for (int m = 0; m < 2; m++)
+	{
+		for (int n = 0; n < 2; n++)
+		{
+			if ((m == 0 && n == 0) || !IsValidCellPosition(sf::Vector2i(m + cell_position.x, n + cell_position.y)))
+				continue;
+			sf::Vector2i next_cell_position = sf::Vector2i(m + cell_position.x, n + cell_position.y);
+			OpenCell(next_cell_position);
+		}
+	}
+}
+
 void BoardController::DeleteBoard()
 {
 	for (int i = 0; i < number_of_rows; i++)
@@ -228,6 +253,7 @@ void BoardController::ProcessCellValue(sf::Vector2i cell_position)
 	switch (board[cell_position.x][cell_position.y]->GetCellValue())
 	{
 	case CellValue::Empty:
+		ProcessEmptyCell(cell_position);
 		break;
 	case CellValue::Mine:
 		break;
@@ -235,6 +261,12 @@ void BoardController::ProcessCellValue(sf::Vector2i cell_position)
 		board[cell_position.x][cell_position.y]->PlayButtonClick();
 		break;
 	}
+}
+
+void BoardController::ProcessEmptyCell(sf::Vector2i cell_position)
+{
+	board[cell_position.x][cell_position.y]->PlayButtonClick();
+	OpenEmptyCells(cell_position);
 }
 
 void BoardController::SetBoardState(BoardState state)

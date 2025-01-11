@@ -43,6 +43,7 @@ namespace Gameplay
 			int CountMinesAround(sf::Vector2i cell_position);
 			bool IsValidCellPosition(sf::Vector2i cell_position);
 			void OpenAllCells();
+			void OpenEmptyCells(sf::Vector2i cell_position);
 			void DeleteBoard();
 			void Destroy();
 
@@ -61,6 +62,7 @@ namespace Gameplay
 			void FlagCell(sf::Vector2i cell_pos);
 			void ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
 			void ProcessCellValue(sf::Vector2i cell_position);
+			void ProcessEmptyCell(sf::Vector2i cell_position);
 			void SetBoardState(BoardState state);
 			BoardState GetBoardState();
 		};
