@@ -2,8 +2,10 @@
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Main/GameService.h"
 #include "../../header/Gameplay/Board/BoardService.h"
+#include "../../header/Sound/SoundService.h"
 
 using namespace Global;
+using namespace Sound;
 using namespace Gameplay;
 using namespace Main;
 
@@ -58,6 +60,10 @@ void GameplayController::GameLost()
 
 void Gameplay::GameplayController::GameWon()
 {
+	game_result = GameResult::Won;
+	board_service->FlagAllMines();
+	board_service->SetBoardState(BoardState::Completed);
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::COMPLETED);
 }
 
 bool Gameplay::GameplayController::IsTimeOver()

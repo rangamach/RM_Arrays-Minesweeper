@@ -67,4 +67,9 @@ void Gameplay::Board::BoardService::ShowBoard()
 	board_controller->ShowBoard();
 }
 
+void Gameplay::Board::BoardService::FlagAllMines()
+{
+	board_controller->FlagAllMines();
+}
+
 

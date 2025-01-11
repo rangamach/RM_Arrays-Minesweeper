@@ -236,6 +236,11 @@ void BoardController::FlagCell(sf::Vector2i cell_pos)
 
 void BoardController::ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
 {
+	if (board_state == BoardState::Completed)
+	{
+		return;
+	}
+
 	switch (button_type)
 	{
 	case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
@@ -301,5 +306,19 @@ void BoardController::SetBoardState(BoardState state)
 BoardState Gameplay::Board::BoardController::GetBoardState()
 {
 	return board_state;
+}
+
+void BoardController::FlagAllMines()
+{
+	for (int row = 0; row < number_of_rows; ++row)
+	{
+		for (int col = 0; col < number_of_columns; ++col)
+		{
+			if (board[row][col]->GetCellValue() == CellValue::Mine && board[row][col]->GetCellState() != CellState::Flagged)
+			{
+				FlagCell(sf::Vector2i(row, col));
+			}
+		}
+	}
 }
 

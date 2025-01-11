@@ -9,7 +9,6 @@ namespace Gameplay
 	namespace Board
 	{
 		class CellController;
-		//class BoardController;
 		class BoardService
 		{
 		private:
@@ -31,6 +30,7 @@ namespace Gameplay
 			BoardState GetBoardState();
 			void SetBoardState(BoardState state);
 			void ShowBoard();
+			void FlagAllMines();
 			
 		};
 	}
