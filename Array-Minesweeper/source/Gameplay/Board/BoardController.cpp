@@ -2,6 +2,7 @@
 #include "../../header/Gameplay/Board/BoardView.h"
 #include "../../header/Gameplay/Cell/CellController.h"
 
+
 using namespace Gameplay::Board;
 using namespace Gameplay::Cell;
 
@@ -186,6 +187,7 @@ void BoardController::OpenCell(sf::Vector2i cell_pos)
 			PopulateBoard(cell_pos);
 			board_state = BoardState::Playing;
 		}
+		ProcessCellValue(cell_pos);
 		board[cell_pos.x][cell_pos.y]->OpenCell();
 	}
 }
@@ -217,6 +219,20 @@ void BoardController::ProcessCellInput(Cell::CellController* cell_controller, UI
 		FlagCell(cell_controller->GetCellIndex());
 		break;
 	default:
+		break;
+	}
+}
+
+void BoardController::ProcessCellValue(sf::Vector2i cell_position)
+{
+	switch (board[cell_position.x][cell_position.y]->GetCellValue())
+	{
+	case CellValue::Empty:
+		break;
+	case CellValue::Mine:
+		break;
+	default:
+		board[cell_position.x][cell_position.y]->PlayButtonClick();
 		break;
 	}
 }

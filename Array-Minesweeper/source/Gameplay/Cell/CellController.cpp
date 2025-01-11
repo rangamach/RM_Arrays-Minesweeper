@@ -1,8 +1,8 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Gameplay/Cell/CellView.h"
 #include "../../header/Gameplay/Cell/CellModel.h"
-#include "../../header/Global/ServiceLocator.h"
 #include "../../header/Sound/SoundService.h"
+#include "../../header/Global/ServiceLocator.h"
 
 using namespace Gameplay::Cell;
 using namespace Global;
@@ -92,5 +92,10 @@ void CellController::FlagCell()
 bool CellController::CanOpenCell()
 {
 	return cell_model->GetCellState() != CellState::Flagged && cell_model->GetCellState() != CellState::Open;
+}
+
+void CellController::PlayButtonClick()
+{
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 }
 

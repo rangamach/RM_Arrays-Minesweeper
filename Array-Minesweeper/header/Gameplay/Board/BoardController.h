@@ -30,7 +30,6 @@ namespace Gameplay
 			std::random_device random_device;
 
 			BoardView* board_view;
-			CellController* cells[number_of_rows];
 			CellController* board[number_of_rows][number_of_columns];
 
 			BoardState board_state;
@@ -61,6 +60,7 @@ namespace Gameplay
 			void OpenCell(sf::Vector2i cell_pos);
 			void FlagCell(sf::Vector2i cell_pos);
 			void ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
+			void ProcessCellValue(sf::Vector2i cell_position);
 			void SetBoardState(BoardState state);
 			BoardState GetBoardState();
 		};
