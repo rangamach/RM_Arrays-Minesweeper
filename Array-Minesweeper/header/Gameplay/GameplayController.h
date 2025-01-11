@@ -24,6 +24,7 @@ namespace Gameplay
 		void UpdateRemainingTime();
 		void GameLost();
 		void GameWon();
+		bool IsTimeOver();
 
 	public:
 		GameplayController();

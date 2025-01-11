@@ -60,6 +60,11 @@ void Gameplay::GameplayController::GameWon()
 {
 }
 
+bool Gameplay::GameplayController::IsTimeOver()
+{
+	return remaining_time <= 1;
+}
+
 GameplayController::GameplayController()
 {
 }
@@ -76,6 +81,10 @@ void GameplayController::Initialize()
 void GameplayController::Update()
 {
 	UpdateRemainingTime();
+	if (IsTimeOver())
+	{
+		EndGame(GameResult::Lost);
+	}
 }
 
 void GameplayController::Render()
