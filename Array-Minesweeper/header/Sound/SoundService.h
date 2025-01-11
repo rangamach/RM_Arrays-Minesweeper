@@ -7,6 +7,7 @@ namespace Sound
 	{
 		BUTTON_CLICK,
 		FLAGGED,
+		EXPLOSION,
 	};
 
 	class SoundService
@@ -18,6 +19,7 @@ namespace Sound
 		sf::Sound sound_effect;
 		sf::SoundBuffer buffer_button_click;
 		sf::SoundBuffer buffer_flag_sound;
+		sf::SoundBuffer buffer_exploding_sound;
 
 		void loadBackgroundMusicFromFile();
 		void loadSoundFromFile();

@@ -4,21 +4,19 @@
 #include "../../UI/UIElement/ButtonView.h"
 #include <random>
 
-using namespace Gameplay::Cell;
-
 namespace Gameplay
 {
 	namespace Board
 	{
 		class BoardView;
+		enum class BoardState
+		{
+			FirstCell,
+			Playing,
+			Completed,
+		};
 		class BoardController
 		{
-			enum class BoardState
-			{
-				FirstCell,
-				Playing,
-				Completed,
-			};
 		public:
 			static const int number_of_rows = 9;
 			static const int number_of_columns = 9;
@@ -30,7 +28,7 @@ namespace Gameplay
 			std::random_device random_device;
 
 			BoardView* board_view;
-			CellController* board[number_of_rows][number_of_columns];
+			Gameplay::Cell::CellController* board[number_of_rows][number_of_columns];
 
 			BoardState board_state;
 
@@ -63,6 +61,8 @@ namespace Gameplay
 			void ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
 			void ProcessCellValue(sf::Vector2i cell_position);
 			void ProcessEmptyCell(sf::Vector2i cell_position);
+			void ProcessMineCell(sf::Vector2i cell_position);
+			void ShowBoard();
 			void SetBoardState(BoardState state);
 			BoardState GetBoardState();
 		};

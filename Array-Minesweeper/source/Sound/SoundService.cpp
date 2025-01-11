@@ -23,6 +23,8 @@ namespace Sound
 			printf("Error loading background music file");
 		if(!buffer_flag_sound.loadFromFile(Config::flag_sound_path))
 			printf("Error loading background music file");
+		if(!buffer_exploding_sound.loadFromFile(Config::explosion_sound_path))
+			printf("Error loading background music file");
 	}
 
 	void SoundService::playSound(SoundType soundType)
@@ -35,6 +37,8 @@ namespace Sound
 		case SoundType::FLAGGED:
 			sound_effect.setBuffer(buffer_flag_sound);
 			break;
+		case SoundType::EXPLOSION:
+			sound_effect.setBuffer(buffer_exploding_sound);
 		default:
 			printf("Invalid sound type");
 			return;

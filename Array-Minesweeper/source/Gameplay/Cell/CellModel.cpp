@@ -1,6 +1,10 @@
 #include "../../header/Gameplay/Cell/CellModel.h"
+#include "../../header/Gameplay/Board/BoardController.h"
+#include "../../header/Global/ServiceLocator.h"
 
 using namespace Gameplay::Cell;
+using namespace Gameplay::Board;
+using namespace Global;
 
 CellModel::CellModel(sf::Vector2i index)
 {
@@ -50,3 +54,4 @@ void CellModel::Reset()
 	cell_state = CellState::Hidden;
 	cell_value = CellValue::Empty;
 }
+

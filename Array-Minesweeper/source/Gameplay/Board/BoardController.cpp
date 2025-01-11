@@ -1,10 +1,15 @@
 #include "../../header/Gameplay/Board/BoardController.h"
 #include "../../header/Gameplay/Board/BoardView.h"
 #include "../../header/Gameplay/Cell/CellController.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Sound/SoundService.h"
+
 
 
 using namespace Gameplay::Board;
 using namespace Gameplay::Cell;
+using namespace Global;
+using namespace Sound;
 
 void BoardController::CreateBoard()
 {
@@ -14,7 +19,7 @@ void BoardController::CreateBoard()
 		{
 			for (int j = 0; j < number_of_columns; j++)
 			{
-				board[i][j] = new CellController(sf::Vector2i(i, j));
+				board[i][j] = new Gameplay::Cell::CellController(sf::Vector2i(i, j));
 			}
 		}
 	}
@@ -89,10 +94,6 @@ bool BoardController::IsValidCellPosition(sf::Vector2i cell_position)
 
 void BoardController::OpenAllCells()
 {
-	if (board_state == BoardState::FirstCell)
-	{
-		PopulateBoard(sf::Vector2i(0, 0));
-	}
 	for (int m = 0; m < number_of_rows; ++m)
 	{
 		for (int n = 0; n < number_of_columns; ++n)
@@ -258,15 +259,38 @@ void BoardController::ProcessCellValue(sf::Vector2i cell_position)
 	case CellValue::Mine:
 		break;
 	default:
-		board[cell_position.x][cell_position.y]->PlayButtonClick();
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 		break;
 	}
 }
 
 void BoardController::ProcessEmptyCell(sf::Vector2i cell_position)
 {
-	board[cell_position.x][cell_position.y]->PlayButtonClick();
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 	OpenEmptyCells(cell_position);
+}
+
+void BoardController::ProcessMineCell(sf::Vector2i cell_position)
+{
+	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::EXPLOSION);
+}
+
+void BoardController::ShowBoard()
+{
+	switch (ServiceLocator::getInstance()->GetBoardService()->GetBoardState())
+	{
+	case BoardState::FirstCell:
+		PopulateBoard(sf::Vector2i(0, 0));
+		OpenAllCells();
+		break;
+	case BoardState::Playing:
+		OpenAllCells();
+		break;
+	case BoardState::Completed:
+		break;
+	default:
+		break;
+	}
 }
 
 void BoardController::SetBoardState(BoardState state)
@@ -274,7 +298,7 @@ void BoardController::SetBoardState(BoardState state)
 	board_state = state;
 }
 
-BoardController::BoardState BoardController::GetBoardState()
+BoardState Gameplay::Board::BoardController::GetBoardState()
 {
 	return board_state;
 }

@@ -2,13 +2,14 @@
 
 #include "../../header/UI/UIElement/ButtonView.h"
 #include "../../header/Gameplay/Cell/CellController.h"
+#include "../../header/Gameplay/Board/BoardController.h"
 
 namespace Gameplay
 {
 	namespace Board
 	{
 		class CellController;
-		class BoardController;
+		//class BoardController;
 		class BoardService
 		{
 		private:
@@ -27,6 +28,9 @@ namespace Gameplay
 			void Reset();
 			int GetMineCount();
 			void ProcessCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
+			BoardState GetBoardState();
+			void SetBoardState(BoardState state);
+			void ShowBoard();
 			
 		};
 	}

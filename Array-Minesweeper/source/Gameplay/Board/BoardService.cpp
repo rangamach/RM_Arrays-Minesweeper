@@ -52,3 +52,19 @@ void BoardService::ProcessCellInput(Cell::CellController* cell_controller, UI::U
 	board_controller->ProcessCellInput(cell_controller, button_type);
 }
 
+BoardState BoardService::GetBoardState()
+{
+	return board_controller->GetBoardState();
+}
+
+void BoardService::SetBoardState(BoardState state)
+{
+	board_controller->SetBoardState(state);
+}
+
+void Gameplay::Board::BoardService::ShowBoard()
+{
+	board_controller->ShowBoard();
+}
+
+

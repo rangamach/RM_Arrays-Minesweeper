@@ -43,7 +43,12 @@ float GameplayService::GetRemainingTime()
 	return gameplay_controller->GetRemainingTime();
 }
 
-int Gameplay::GameplayService::GetMineCount()
+int GameplayService::GetMineCount()
 {
 	return gameplay_controller->GetMineCount();
+}
+
+void GameplayService::EndGame(GameResult result)
+{
+	gameplay_controller->EndGame(result);
 }

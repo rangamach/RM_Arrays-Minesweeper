@@ -94,8 +94,3 @@ bool CellController::CanOpenCell()
 	return cell_model->GetCellState() != CellState::Flagged && cell_model->GetCellState() != CellState::Open;
 }
 
-void CellController::PlayButtonClick()
-{
-	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-}
-
