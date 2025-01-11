@@ -93,3 +93,4 @@ bool CellController::CanOpenCell()
 {
 	return cell_model->GetCellState() != CellState::Flagged && cell_model->GetCellState() != CellState::Open;
 }
+
